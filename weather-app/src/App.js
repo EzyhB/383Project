@@ -3,14 +3,17 @@ import { Container, Grid, ThemeProvider } from "@mui/material";
 import WeatherCarousel from "./components/WeatherCarousel";
 import darkTheme from "./styles/theme/themes";
 import BigWeatherDisplay from "./components/BigWeatherDisplay";
+import BasicTextFields from "./components/SearchBar";
 
 function App() {
   return (
+    
     <ThemeProvider theme={darkTheme}>
       <Container
         maxWidth={false}
         sx={{ height: "100vh", background: "#28293E" }}
       >
+        <BasicTextFields></BasicTextFields>
         <Grid container>
           <Grid item md={8} xs={12}>
             <WeatherCarousel></WeatherCarousel>
