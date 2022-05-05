@@ -1,9 +1,13 @@
 import { Container } from "@mui/material";
 import Carousel from "react-elastic-carousel";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import randomData from "../../dummyData";
 import WeatherDisplayCard from "../WeatherDisplayCard";
-import fetchData, {fetchGeoCodes, fetchWeatherData, createArrayOfData} from '../../data-models/index'
+import fetchData, {
+  fetchGeoCodes,
+  fetchWeatherData,
+  createArrayOfData,
+} from "../../data-models/index";
 
 const breakPoints = [
   { width: 0, itemsToShow: 1 },
@@ -11,17 +15,17 @@ const breakPoints = [
   { width: 900, itemsToShow: 3 },
 ];
 
-
-
 export default function WeatherCarousel() {
-
   const [weatherData, setweatherData] = useState([]);
 
   useEffect(() => {
+    async function random() {
+      let data = await createArrayOfData();
+      setweatherData(data);
+    }
 
-    setweatherData(createArrayOfData());
-
-  }, [])
+    random();
+  }, []);
 
   console.log(weatherData);
 
