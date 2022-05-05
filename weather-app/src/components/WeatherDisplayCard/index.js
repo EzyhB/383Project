@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 
 export default function WeatherDisplayCard({
-  day,
+  weather,
   date,
   temp,
   pressure,
@@ -18,9 +18,9 @@ export default function WeatherDisplayCard({
 }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardHeader title={day} subheader={date}></CardHeader>
+      <CardHeader title={weather} subheader={date}></CardHeader>
       <CardContent>
-        <Typography>Tempreature: {temp}</Typography>
+        <Typography>Temperature: {temp}</Typography>
         <Typography>Pressure: {pressure}</Typography>
         <Typography>Humidity: {humidity}</Typography>
         <Typography>Speed: {speed}</Typography>

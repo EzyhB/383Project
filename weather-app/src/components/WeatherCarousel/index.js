@@ -17,8 +17,8 @@ export default function WeatherCarousel() {
         {randomData.map((el, index) => (
           <WeatherDisplayCard
             key={index}
-            day={el.weather[0].main}
-            date="testing"
+            weather={el.weather[0].main}
+            date={el.dt}
             temp={el.temp.day}
             pressure={el.pressure}
             humidity={el.humidity}
