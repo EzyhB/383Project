@@ -25,7 +25,7 @@ const darkTheme = createTheme({
       default: "#28293E",
     },
     text: {
-      primary: "#ffff",
+      primary: "#fff",
       secondary: "#535364",
       disabled: "#ff3d00",
     },

@@ -3,6 +3,7 @@ import { Container, Grid, ThemeProvider } from "@mui/material";
 import WeatherCarousel from "./components/WeatherCarousel";
 import darkTheme from "./styles/theme/themes";
 import BigWeatherDisplay from "./components/BigWeatherDisplay";
+import AppHeading from "./components/AppHeading";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         maxWidth={false}
         sx={{ height: "100vh", background: "#28293E" }}
       >
+        <AppHeading />
         <Grid container>
           <Grid item md={8} xs={12}>
             <WeatherCarousel></WeatherCarousel>
@@ -26,7 +28,6 @@ function App() {
         </Grid>
       </Container>
     </ThemeProvider>
-
   );
 }
 
