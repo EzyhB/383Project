@@ -20,10 +20,7 @@ export default function WeatherCarousel() {
             weather={el.weather[0].main}
             date={el.dt}
             temp={el.temp.day}
-            pressure={el.pressure}
             humidity={el.humidity}
-            speed={el.speed}
-            clouds={el.clouds}
           ></WeatherDisplayCard>
         ))}
       </Carousel>
