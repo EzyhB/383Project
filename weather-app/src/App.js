@@ -1,16 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
-import WeatherDisplayCard from "./components/WeatherDisplayCard";
-import { Container } from "@mui/material";
+import { Container, ThemeProvider } from "@mui/material";
 import WeatherCarousel from "./components/WeatherCarousel";
-import SearchBar from "./components/SearchBar";
+import darkTheme from "./styles/theme/themes";
 
 function App() {
   return (
-    <Container>
-      <SearchBar></SearchBar>
-      <WeatherCarousel></WeatherCarousel>
-    </Container>
+    <ThemeProvider theme={darkTheme}>
+      <Container
+        maxWidth={false}
+        sx={{ height: "100vh", background: "#28293E" }}
+      >
+        <WeatherCarousel></WeatherCarousel>
+      </Container>
+    </ThemeProvider>
+
   );
 }
 
