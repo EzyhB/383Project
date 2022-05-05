@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-import WeatherDisplayCard from "./components/WeatherDisplayCard";
 import { Container, ThemeProvider } from "@mui/material";
 import WeatherCarousel from "./components/WeatherCarousel";
 import darkTheme from "./styles/theme/themes";
