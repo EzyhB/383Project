@@ -30,7 +30,7 @@ export async function fetchWeatherData(){
   return data;
 }
 
-async function createArrayOfData(){
+export async function createArrayOfData(){
 
   const allTheData = await fetchWeatherData();
 
