@@ -2,7 +2,8 @@
 
 const API_KEY = '2cd4fbd3d72eee725251ebc4af4a9df8';
 
-async function fetchGeoCodes(){
+
+export async function fetchGeoCodes(){
 
   const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=London&limit=2&appid=${API_KEY}`)
 
@@ -10,38 +11,64 @@ async function fetchGeoCodes(){
 
   console.log(data[0]);
 
-  const latitude = data[0].lat;
-  const longitude = data[0].long;
-
-  //fetchWeatherData(latitude, longitude)
-
   return data[0];
 
 }
 
-async function fetchWeatherData(){
+export async function fetchWeatherData(){
 
   const coordinates = await fetchGeoCodes();
 
   const latitude = coordinates.lat;
   const longitude = coordinates.lon;
 
-  const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`)
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=${API_KEY}`)
   const data = await response.json();
 
   console.log(data);
+
+  return data;
 }
 
-fetchWeatherData();
+export async function createArrayOfData(){
 
+  const allTheData = await fetchWeatherData();
 
+  const sanitisedArray = [];
 
+  const currentObject = {
+    date: allTheData.current.dt,
+    feelsLike: allTheData.current.feels_like,
+    temperature: allTheData.current.temp,
+    windSpeed: allTheData.current.wind_speed,
+    weatherDescription: allTheData.current.weather[0].description,
+    weather: allTheData.current.weather[0].main,
+    clouds: allTheData.current.clouds,
+    humidity: allTheData.current.humidity,
+    pressure: allTheData.current.pressure
+  }
 
+  sanitisedArray.push(currentObject);
 
-const API_KEY2 = "d22f3c3822a9968ad52d483c9c733184"
+  for (let i = 0; i < 7; i++){
 
-async function fetchWeatherData (){
-  const response = await fetch("https://api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10&appid={API key}")
-  const data = await response.json()
+    currentObject = {
+      date: allTheData.daily[i].dt,
+      feelsLike: allTheData.daily[i].feels_like.day,
+      temperature: allTheData.daily[i].temp.day,
+      windSpeed: allTheData.daily[i].wind_speed,
+      weatherDescription: allTheData.daily[i].weather[0].description,
+      weather: allTheData.daily[i].weather[0].main,
+      clouds: allTheData.daily[i].clouds,
+      humidity: allTheData.daily[i].humidity,
+      pressure: allTheData.daily[i].pressure
+    }
+    
+    sanitisedArray.push(currentObject)
+
+  }
+
+  return sanitisedArray;
+
+}
   
-}
