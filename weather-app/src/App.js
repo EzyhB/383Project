@@ -6,6 +6,8 @@ import darkTheme from "./styles/theme/themes";
 import lightTheme from "./styles/theme/lighttheme";
 import BigWeatherDisplay from "./components/BigWeatherDisplay";
 import { ToggleButtonGroup, ToggleButton } from "@mui/material"
+import AppHeading from "./components/AppHeading";
+
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
         maxWidth={false}
         sx={{ height: "100vh", background: toggleDark ? "#28293E" : "#fff"}}
       >
+
 <ToggleButtonGroup
   color="secondary"
   // value={alignment}
@@ -25,6 +28,9 @@ function App() {
   <ToggleButton value="light">Light</ToggleButton>
   <ToggleButton value="dark">Dark</ToggleButton>
 </ToggleButtonGroup>
+
+        <AppHeading />
+
         <Grid container>
           <Grid item md={8} xs={12}>
             <WeatherCarousel></WeatherCarousel>
@@ -40,7 +46,6 @@ function App() {
         </Grid>
       </Container>
     </ThemeProvider>
-
   );
 }
 
