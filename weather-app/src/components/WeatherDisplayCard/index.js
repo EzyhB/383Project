@@ -17,7 +17,7 @@ export default function WeatherDisplayCard({
   clouds,
 }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, color: "#28293E" }}>
       <CardHeader title={weather} subheader={date}></CardHeader>
       <CardContent>
         <Typography>Temperature: {temp}</Typography>
