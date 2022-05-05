@@ -13,6 +13,7 @@ function App() {
         <WeatherCarousel></WeatherCarousel>
       </Container>
     </ThemeProvider>
+
   );
 }
 
